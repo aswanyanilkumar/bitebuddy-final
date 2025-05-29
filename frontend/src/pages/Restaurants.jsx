@@ -7,7 +7,7 @@ function Restaurants() {
   const [restaurants, setRestaurants] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/restaurant/all') // Adjusted the endpoint to match the server
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}/restaurant/all`) // Adjusted the endpoint to match the server
       .then(response => {
         console.log(response.data);
         setRestaurants(response.data);

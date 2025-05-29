@@ -17,7 +17,7 @@ const PostFoodItem = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/restaurant/all");
+        const res = await axios.get("${import.meta.env.VITE_API_BASE_URL}/restaurant/all");
         console.log("Restaurants fetched:", res.data);
         setRestaurants(res.data);
       } catch (err) {

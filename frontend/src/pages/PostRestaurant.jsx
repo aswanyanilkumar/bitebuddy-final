@@ -22,7 +22,7 @@ const PostRestaurant = () => {
     try {
       const token = localStorage.getItem('adminToken');
     console.log('Sending token:', token); // Debug token
-      await axios.post('http://localhost:3001/restaurant/add', formData, {
+      await axios.post('${import.meta.env.VITE_API_BASE_URL}/restaurant/add', formData, {
         headers: {
           Authorization: `Bearer ${token}` // Assuming you store token like this
         }

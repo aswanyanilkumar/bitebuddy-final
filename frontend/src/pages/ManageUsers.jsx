@@ -9,7 +9,7 @@ const ManageUsers = () => {
     // Fetch users from backend
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/user/all");
+        const res = await axios.get("${import.meta.env.VITE_API_BASE_URL}/user/all");
         setUsers(res.data);
       } catch (err) {
         console.error("Failed to fetch users", err);

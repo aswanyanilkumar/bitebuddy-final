@@ -19,7 +19,7 @@ function FoodMenu() {
   useEffect(() => {
     const fetchFoodItems = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/food/restaurant/${restaurantId}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/food/restaurant/${restaurantId}`);
         setFoodItems(response.data);
         setFilteredItems(response.data);
         setLoading(false);

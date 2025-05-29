@@ -12,7 +12,7 @@ const FoodItemDetail = () => {
   useEffect(() => {
     const fetchFoodItem = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/food/${id}`);
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/food/${id}`);
         setFoodItem(response.data);
         setLoading(false);
       } catch (err) {

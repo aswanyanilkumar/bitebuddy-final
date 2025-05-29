@@ -32,7 +32,7 @@ useEffect(() => {
     try {
       setLoading(true);
       await axios.post(
-        '${BASE_URL}/review/submit',
+        `${BASE_URL}/review/submit`,
         { foodItemId, rating, comment },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );

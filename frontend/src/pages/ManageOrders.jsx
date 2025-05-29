@@ -9,7 +9,7 @@ const ManageOrders = () => {
     // Fetch orders from backend
     const fetchOrders = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/orders/all");
+        const res = await axios.get("${import.meta.env.VITE_API_BASE_URL}/orders/all");
         setOrders(res.data);
       } catch (err) {
         console.error("Failed to fetch orders", err);
