@@ -9,12 +9,12 @@ const ReviewSection = ({ foodItemId }) => {
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   // Fetch existing reviews
 useEffect(() => {
   const fetchReviews = async () => {
     try {
-      const res = await axios.get(`http://localhost:3001/review/${foodItemId}`);
+      const res = await axios.get(`${BASE_URL}/review/${foodItemId}`);
       setReviews(Array.isArray(res.data) ? res.data : []);
     } catch (err) {
       console.error("Error loading reviews", err);
@@ -32,7 +32,7 @@ useEffect(() => {
     try {
       setLoading(true);
       await axios.post(
-        'http://localhost:3001/review/submit',
+        '${BASE_URL}/review/submit',
         { foodItemId, rating, comment },
         { headers: { Authorization: `Bearer ${user.token}` } }
       );
