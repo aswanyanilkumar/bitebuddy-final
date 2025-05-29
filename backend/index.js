@@ -23,7 +23,10 @@ app.get("/",(req,res) => {
 
 connectDB();
 //middleware
-app.use(cors({ origin: 'http://localhost:5179' }));
+app.use(cors({ origin:[
+    'http://localhost:5179',                 // for local dev
+    'https://bitebuddy-final.vercel.app',    // for deployed frontend
+  ], }));
 app.use(express.json());
 app.use("/user",userRouter);
 app.use("/admin", adminRouter);
